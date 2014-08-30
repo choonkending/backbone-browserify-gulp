@@ -13,6 +13,7 @@ gulp.task('markup', function () {
 
 // concat and minify backbone, underscore, jquery
 gulp.task('base', function () {
+	// backbone.js is concatenated last, as underscore is a hard dependency
 	return gulp.src(['./src/js/libs/!(backbone)*.js', './src/js/libs/backbone.js'])
 		.pipe(concat('base.min.js'))
 		.pipe(uglify())
